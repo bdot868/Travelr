@@ -1,5 +1,13 @@
 <h1>This works!</h1>
+<div class="">
+  <% if logged_in? %>
+    <%= link_to "Logout", logout_path, {method: "DELETE"} %>
+  <% else %>
+    <%= link_to "Login", new_session_path %>
+    <% end %>
 
+    <%= link_to "Create Account", new_user_path %>
+</div>
 
 <% @user.each do |u| %>
   <article class="">
