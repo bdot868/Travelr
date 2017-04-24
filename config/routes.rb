@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   root 'users#index'
   # get '/users' => 'users#index'
   resources :users
@@ -13,5 +19,6 @@ Rails.application.routes.draw do
 #         PUT    /users/:id(.:format)      users#update
 #         DELETE /users/:id(.:format)      users#destroy
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+delete '/logout' => 'sessions#destroy', as: :logout
+resources :sessions, only: [:new, :create]
 end
