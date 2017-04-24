@@ -1,2 +1,8 @@
 <h1>This works!</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+
+<% @user.each do |u| %>
+  <article class="">
+    <%= u.name %>
+  </article>
+<% end %>
