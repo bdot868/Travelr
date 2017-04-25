@@ -1,0 +1,8 @@
+<h1>Travelr</h1>
+
+
+<% @city.each do |c|  %>
+  <article class="">
+    <h3> <%= link_to c.name, post_path %> </h3>
+  </article>
+<% end  %>

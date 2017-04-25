@@ -17,21 +17,17 @@ class PostsController < ApplicationController
 
   def create
 
-    # u = Post.find post_params[:post][:user_id]
-    # p = Post.new
-    # p.title = params[:post][:title]
-    # p.body = params[:post][:body]
-    # p.user = u
-    # p.save
-    # redirect_to user_path(u.id)
-
+    @city = City.last
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
+    @post.city = @city
+
     if @post.save
-      redirect_to user_path(current_user.id)
+      redirect_to post_path(@post.id)
     else
-      render :new
+      redirect_to posts_path
     end
+
   end
 
   def update
@@ -46,13 +42,18 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find params[:id]
-    @post.destroy
-    redirect_to user_path(current_user.id)
+    if current_user == @post.user
+      if @post.destroy
+          redirect_to posts_path
+        end
+      else
+    redirect_to posts_path
+  end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:id, :user_id, :title, :body, :pic_url, :_destroy)
+    params.require(:post).permit(:id, :city_id, :user_id, :title, :body, :pic_url, :_destroy)
   end
 end

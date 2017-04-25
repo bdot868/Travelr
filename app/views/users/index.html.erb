@@ -1,4 +1,16 @@
-<h1>This works!</h1>
+<h1>Travelr</h1>
+
+
+<% @user.each do |u|  %>
+
+  <article class="">
+    <h3> <% u.posts.each do |post| %>
+        <%= link_to post.city.name, post_path(post.id) %>
+      <% end  %>
+     </h3>
+  </article>
+<% end  %>
+
 <div class="">
   <% if logged_in? %>
     <%= link_to "Logout", logout_path, {method: "DELETE"} %>

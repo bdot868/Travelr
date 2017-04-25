@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
     root 'users#index'
+    resources :cities
   # get '/users' => 'users#index'
   resources :users
 

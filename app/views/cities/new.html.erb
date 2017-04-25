@@ -1,0 +1,15 @@
+<h1>Add location</h1>
+
+<%= form_for @city do |f| %>
+  <ul>
+      <li>
+        City: <%= f.text_field :name %>
+        Country: <%= f.text_field :country %>
+        Continent: <%= f.text_field :continent %>
+        <%= f.submit %>
+      
+
+      </li>
+
+  </ul>
+<% end %>
