@@ -1,4 +1,4 @@
-<%= link_to 'Back to user', user_path(@post.user_id) %>
+
 
 <h1> <%= @post.title %></h1>
 
@@ -7,9 +7,21 @@
 <h3>Review</h3>
 <p><%= @post.body %></p>
 
+<p>Author: <i> <%= link_to @post.user.username, user_path(@post.user_id) %> </i></p>
 
-<%= link_to 'Edit Post', edit_post_path %>
+
+
+
+<% if current_user == @post.user %>
+  <%= link_to 'Edit Post', edit_post_path %>
+
+  <% end  %>
 
 <% if current_user == @post.user %>
   <%= link_to 'delete post!', post_path(@post), method: 'DELETE', data: {confirm: 'Are you sure?'} %>
+  <% end  %>
+
+<br>
+<% if current_user == @post.user %>
+  <%= link_to 'Back to user', user_path(@post.user_id) %>
   <% end  %>
