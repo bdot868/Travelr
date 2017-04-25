@@ -1,8 +1,22 @@
 <h1><%= @user.username %></h1>
 
+<h3>Trips:</h3>
+  <% @user.posts.each do |up|  %>
+    <article>
+      <%= link_to up.title, post_path(up) %>
+    </article>
+  <% end  %>
+
+<br>
+<h4>Add New Review</h4>
+<%= link_to "Create New Post", new_post_path %>
 
 <article class="">
   <h4>Name: <%= @user.name %></h4>
   <h4>Email: <%= @user.email %></h4>
   <h4>City: <%= @user.city %></h4>
 </article>
+
+
+
+<%= link_to "Back", users_path %>

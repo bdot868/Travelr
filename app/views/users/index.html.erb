@@ -11,6 +11,6 @@
 
 <% @user.each do |u| %>
   <article class="">
-    <%= u.username %>
+    <%= link_to u.username, user_path(u) %>
   </article>
 <% end %>

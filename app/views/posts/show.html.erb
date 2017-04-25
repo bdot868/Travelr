@@ -1,6 +1,15 @@
+<%= link_to 'Back to user', user_path(@post.user_id) %>
+
 <h1> <%= @post.title %></h1>
+
+
 
 <h3>Review</h3>
 <p><%= @post.body %></p>
 
-<%= link_to 'Back to user', posts_path %>
+
+<%= link_to 'Edit Post', edit_post_path %>
+
+<!-- <% if @post == current_user.id %> -->
+  <%= link_to 'delete post!', @post, method: :delete %>
+<!-- <% end  %> -->
