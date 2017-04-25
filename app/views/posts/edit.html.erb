@@ -4,6 +4,7 @@
 <%= form_for @post do |f| %>
   <%= f.text_field :title, placeholder: 'title' %>
   <%= f.text_area :body, placeholder: 'title' %>
+  <%= f.file_field :image %>
   <%= f.submit 'Update that Shit!' %>
 
 <% end %>

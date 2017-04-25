@@ -6,6 +6,7 @@
   <article class="">
     <h3> <% u.posts.each do |post| %>
         <%= link_to post.city.name, post_path(post.id) %>
+        <%= image_tag post.image.url(:thumb) %>
       <% end  %>
      </h3>
   </article>

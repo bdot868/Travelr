@@ -1,10 +1,11 @@
 <h1>New Review</h1>
 
-<%= form_for @post do |f| %>
+<%= form_for @post, html: {multipart: true} do |f| %>
   <ul>
       <li>
         Review Title: <%= f.text_field :title %>
         Review: <%= f.text_area :body %>
+        image: <%= f.file_field :image %>
         <%= f.submit %>
       <%= @post.inspect %>
 

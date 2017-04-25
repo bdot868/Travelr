@@ -4,6 +4,7 @@
   <% @user.posts.each do |up|  %>
     <article>
       <%= link_to up.title, post_path(up) %>
+      <a href=" <%= post_url(up) %>"> <%= image_tag up.image.url(:thumb) %></a>
     </article>
   <% end  %>
 
