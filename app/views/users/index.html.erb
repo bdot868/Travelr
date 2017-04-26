@@ -5,8 +5,8 @@
 
   <article class="">
     <h3> <% u.posts.each do |post| %>
-        <%= link_to post.city.name, post_path(post.id) %>
-        <%= image_tag post.image.url(:thumb) %>
+        <%= link_to post.city, post_path(post.id) %>
+        <%= image_tag post.image.url(:medium) %>
       <% end  %>
      </h3>
   </article>
@@ -17,7 +17,7 @@
 
 
   <% if logged_in? %>
-    <%= link_to "Create New Post", new_city_path %>
+    <%= link_to "Create New Post", new_post_path %>
     <% end  %>
 <!-- <% @user.each do |u| %>
   <article class="">

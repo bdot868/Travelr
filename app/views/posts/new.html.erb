@@ -4,12 +4,10 @@
   <ul>
       <li>
         Review Title: <%= f.text_field :title %>
+        City: <%= f.text_field :city %>
         Review: <%= f.text_area :body %>
         image: <%= f.file_field :image %>
         <%= f.submit %>
-      
-
       </li>
-
   </ul>
 <% end %>

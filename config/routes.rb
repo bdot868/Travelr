@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
     root 'users#index'
     get '/posts/search' => 'posts#search'
-    resources :cities
+
   # get '/users' => 'users#index'
   resources :users
 
@@ -17,8 +17,18 @@ Rails.application.routes.draw do
 #         PUT    /users/:id(.:format)      users#update
 #         DELETE /users/:id(.:format)      users#destroy
 
+resources :posts do
+  resources :comments
+end
+
 delete '/logout' => 'sessions#destroy', as: :logout
 resources :sessions, only: [:new, :create]
 
-resources :posts
+
+
+get '/comments/new' => 'comments#new', as: :new_comment
+
+  post '/posts/:id' => 'comments#create'
+
+  delete 'posts/:id' => 'comments#destroy'
 end

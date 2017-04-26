@@ -14,10 +14,10 @@
   </head>
 
   <body>
-    <form method="get" action="/posts/search">
-      <input type="text" placeholder="Search Cities" name="query">
-    </form>
+    <%= render 'partials/navbar' %>
+    
     <%= link_to "Home", root_path %>
+
 
     <div class="sign-in">
       <% if logged_in? %>
@@ -28,6 +28,8 @@
         <% end %>
     </div>
 
+
+
     <% if flash[:alert] %>
       <div class="alert alert-danger">
         <%= flash[:alert] %>
@@ -37,6 +39,10 @@
     <% if logged_in? %>
         <p>Signed in as: <i> <%= current_user.username %> </i></p>
     <% end  %>
+
+    <form method="get" action="/posts/search">
+      <input type="text" placeholder="Search Cities" name="query">
+    </form>
 
     <%= yield %>
   </body>

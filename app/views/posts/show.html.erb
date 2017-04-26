@@ -4,7 +4,6 @@
 
 <%= image_tag @post.image.url(:large) %>
 
-<h3>Review</h3>
 <p><%= @post.body %></p>
 <h6>created <%= time_ago_in_words(@post.created_at) %> ago </h6>
 
@@ -21,6 +20,21 @@
 <% if current_user == @post.user %>
   <%= link_to 'delete post!', post_path(@post), method: 'DELETE', data: {confirm: 'Are you sure?'} %>
   <% end  %>
+
+<h4>Comments</h4>
+  <ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+</ul>
+
+
+
+
+  <%= form_for([@post, @comment]) do |f| %>
+    Comment: <%= f.text_field :body, placeholder: "Add Comment" %>
+    <%= f.submit %>
+    <% end  %>
 
 <br>
 <br>

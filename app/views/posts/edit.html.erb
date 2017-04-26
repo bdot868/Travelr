@@ -2,9 +2,10 @@
 
 
 <%= form_for @post do |f| %>
+  <%= f.text_field :city, placeholder: 'city' %>
   <%= f.text_field :title, placeholder: 'title' %>
-  <%= f.text_area :body, placeholder: 'title' %>
+  <%= f.text_area :body, placeholder: 'review' %>
   <%= f.file_field :image %>
-  <%= f.submit 'Update that Shit!' %>
+  <%= f.submit 'Update!' %>
 
 <% end %>

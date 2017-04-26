@@ -4,12 +4,13 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where("body ILIKE ?", "%#{params[:query]}%")
+    @posts = Post.where("city ILIKE ?", "%#{params[:query]}%")
     render "posts/index"
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -23,15 +24,13 @@ class PostsController < ApplicationController
 
   def create
 
-    @city = City.last
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.city = @city
 
     if @post.save
       redirect_to post_path(@post.id)
     else
-      redirect_to posts_path
+      redirect_to root_path
     end
 
   end
@@ -60,6 +59,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :id, :city_id, :user_id, :title, :body, :pic_url, :_destroy)
+    params.require(:post).permit(:image, :id, :city, :user_id, :title, :body, :pic_url, :_destroy)
   end
 end
