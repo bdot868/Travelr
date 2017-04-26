@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.all
+  end
+
+  def search
+    @posts = Post.where("body ILIKE ?", "%#{params[:query]}%")
+    render "posts/index"
   end
 
   def show

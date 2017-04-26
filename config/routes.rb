@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
     root 'users#index'
+    get '/posts/search' => 'posts#search'
     resources :cities
   # get '/users' => 'users#index'
   resources :users

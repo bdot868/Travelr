@@ -6,7 +6,6 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.string :video_url
       t.string :pic_url
       t.belongs_to :user, foreign_key: true
-      t.belongs_to :city, foreign_key: true
 
       t.timestamps
     end

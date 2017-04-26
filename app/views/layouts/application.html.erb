@@ -14,8 +14,10 @@
   </head>
 
   <body>
+    <form method="get" action="/posts/search">
+      <input type="text" placeholder="Search Cities" name="query">
+    </form>
     <%= link_to "Home", root_path %>
-
 
     <div class="sign-in">
       <% if logged_in? %>
@@ -25,6 +27,12 @@
         <%= link_to "Create Account", new_user_path %>
         <% end %>
     </div>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
     <% if logged_in? %>
         <p>Signed in as: <i> <%= current_user.username %> </i></p>
