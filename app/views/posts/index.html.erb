@@ -1,7 +1,11 @@
-<h1>All Posts</h1>
+
 
 <% @posts.each do |p| %>
+<h2> All Posts pertaining to the City of: <%= p.city %></h2>
+<br>
+<br>
   <article>
+
        <%= link_to p.title, post_path(p) %>
   </article>
 <% end %>

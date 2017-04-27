@@ -7,43 +7,61 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style media="screen">
-      .sign-in {
+      .signed-in {
         float: right;
+      }
+      .col-md-4 {
+        background-color: yellow;
       }
     </style>
   </head>
 
   <body>
     <%= render 'partials/navbar' %>
-    
-    <%= link_to "Home", root_path %>
+
+    <!-- <%= link_to "Home", root_path %> -->
 
 
-    <div class="sign-in">
+    <!-- <div class="sign-in">
       <% if logged_in? %>
         <%= link_to "Logout", logout_path, {method: "DELETE"} %>
       <% else %>
         <%= link_to "Login", new_session_path %>
         <%= link_to "Create Account", new_user_path %>
         <% end %>
-    </div>
+    </div> -->
+
+    <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <% if flash[:alert] %>
+                <div class="alert alert-danger">
+                  <%= flash[:alert] %>
+                </div>
+              <% end %>
+
+            </div>
+            <div class="col-md-4">
+              <% if logged_in? %>
+                <div class="signed-in">
+                  <p>Signed in as: <i> <%= current_user.username %> </i></p>
+                </div>
+              <% end  %>
+
+            </div>
+          </div>
+
+          <%= yield %>
+        </div>
 
 
 
-    <% if flash[:alert] %>
-      <div class="alert alert-danger">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
 
-    <% if logged_in? %>
-        <p>Signed in as: <i> <%= current_user.username %> </i></p>
-    <% end  %>
 
-    <form method="get" action="/posts/search">
+    <!-- <form method="get" action="/posts/search">
       <input type="text" placeholder="Search Cities" name="query">
-    </form>
+    </form> -->
 
-    <%= yield %>
+
   </body>
 </html>
