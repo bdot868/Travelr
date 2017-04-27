@@ -1,8 +1,10 @@
 
 
-<h1> <%= @post.title %></h1>
+<h1> <%= @post.title.capitalize %></h1>
 
 <%= image_tag @post.image.url(:large), class:"post-img" %>
+<br>
+<hr>
 
 <p><%= @post.body %></p>
 <h6>created <%= time_ago_in_words(@post.created_at) %> ago </h6>
@@ -25,12 +27,11 @@
   <% end  %>
 
 <h4>Comments</h4>
-  <ul>
+<ul class="">
   <% @post.comments.each do |comment| %>
     <li><%= comment.body %></li>
   <% end %>
 </ul>
-
 
 <%= form_for([@post, @comment],{:html => {:class => 'form-horizontal'}}) do |f| %>
   <fieldset>
@@ -49,7 +50,7 @@
   </fieldset>
   <% end  %>
 
-  
+
 <br>
 <br>
 <% if current_user == @post.user %>

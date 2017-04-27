@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
+    @post = Post.first(6)
   end
 
   def show

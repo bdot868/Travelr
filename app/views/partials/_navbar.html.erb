@@ -43,8 +43,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
+            <li><a href="users#show">Profile</a></li>
             <li><a href="#">Settings</a></li>
+            <li><%= link_to "Create New Post", new_post_path %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
             <% else %>
