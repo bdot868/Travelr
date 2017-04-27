@@ -28,7 +28,7 @@ resources :sessions, only: [:new, :create]
 
 get '/comments/new' => 'comments#new', as: :new_comment
 
-  post '/posts/:id' => 'comments#create'
+  post '/posts/:id' => 'comments#create', as: :comments
 
   delete 'posts/:id' => 'comments#destroy'
 end

@@ -1,0 +1,34 @@
+<%= form_for @post,{:html => {:class => 'form-horizontal'}} do |f| %>
+  <fieldset>
+    <div class="form-group">
+        <%= label_tag :city, 'City', class: 'col-md-4 control-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :city, placeholder: 'city', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+        <%= label_tag :title, 'Title', class: 'col-md-4 control-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :title, placeholder: 'title', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+        <%= label_tag :body, 'Review', class: 'col-md-4 control-label' %>
+      <div class="col-md-5">
+        <%= f.text_area :body, placeholder: 'review', class: 'form-control' %>
+      </div>
+    </div>
+  <div class="form-group">
+    <%= label_tag :image, 'Image', class: 'col-md-4 control-label' %>
+    <div class="col-md-5">
+      <%= f.file_field :image, class: 'form-control-file' %>
+      <p class="help-block">Example (.jpeg, .png, etc..)</p>
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="col-md-8 col-md-offset-4">
+          <%= f.submit 'Submit', class: 'btn btn-success' %>
+      </div>
+  </div>
+</fieldset>
+<% end  %>

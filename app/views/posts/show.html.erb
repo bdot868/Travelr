@@ -2,7 +2,7 @@
 
 <h1> <%= @post.title %></h1>
 
-<%= image_tag @post.image.url(:large) %>
+<%= image_tag @post.image.url(:large), class:"post-img" %>
 
 <p><%= @post.body %></p>
 <h6>created <%= time_ago_in_words(@post.created_at) %> ago </h6>
@@ -13,12 +13,15 @@
 
 
 <% if current_user == @post.user %>
-  <%= link_to 'Edit Post', edit_post_path %>
-
+  <div type="button" class="btn btn-warning">
+    <%= link_to 'Edit Post', edit_post_path %>
+  </div>
   <% end  %>
 
 <% if current_user == @post.user %>
+  <div type="button" class="btn btn-danger">
   <%= link_to 'delete post!', post_path(@post), method: 'DELETE', data: {confirm: 'Are you sure?'} %>
+</div>
   <% end  %>
 
 <h4>Comments</h4>
@@ -29,13 +32,24 @@
 </ul>
 
 
+<%= form_for([@post, @comment],{:html => {:class => 'form-horizontal'}}) do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', class: 'col-md-1 control-label' %>
+      <div class="col-md-4">
+         <%= f.text_area :body, placeholder: "Add Comment",  class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-2 col-md-offset-1">
+        <%= f.submit class: 'btn btn-success' %>
+      </div>
+    </div>
 
+  </fieldset>
+  <% end  %>
 
-  <%= form_for([@post, @comment]) do |f| %>
-    Comment: <%= f.text_field :body, placeholder: "Add Comment" %>
-    <%= f.submit %>
-    <% end  %>
-
+  
 <br>
 <br>
 <% if current_user == @post.user %>

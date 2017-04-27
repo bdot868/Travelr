@@ -1,16 +1,56 @@
-<h1>Travelr</h1>
 
+<header>
 
-<% @user.each do |u|  %>
+</header>
 
-  <article class="">
-    <h3> <% u.posts.each do |post| %>
-        <%= link_to post.city, post_path(post.id) %>
-        <%= image_tag post.image.url(:medium) %>
-      <% end  %>
-     </h3>
-  </article>
+<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+
+<div class="center-block"><h1>Travelr</h1></div>
+
+<div class="container">
+       <div class="row">
+        <div class="col-md-12">
+          <% @user.each do |u|  %>
+            <article class="">
+               <% u.posts.each do |post| %>
+                <div class="posts">
+                  <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
+
+                    <%= image_tag post.image.url(:medium), class:"images" %>
+
+                </div>
+                <% end  %>
+            </article>
+          <% end  %>
+
+        </div>
+
+      </div>
+    </div>
+<div class="container"
+    <div class="row">
+
+  <% @user.each do |u|  %>
+  <% u.posts.each do |post| %>
+  <div class="col-sm-10 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag post.image.url(:medium) %>
+      <div class="caption">
+        <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
+        <p> <%= post.body %> </p>
+        <p><a href="posts/show" class="btn btn-primary" role="button">Button</a>
+      </div>
+    </div>
+  </div>
+  <% end  %>
+</div>
 <% end  %>
+</div>
+
 
 
 
