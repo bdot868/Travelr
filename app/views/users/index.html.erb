@@ -1,27 +1,63 @@
-
+<!-- 
 <header>
 
 </header>
 
-<div class="jumbotron">
-  <h1>Trip planning at your fingertips!</h1>
-  <script type="text/javascript" charset="utf-8">
-  $(function(){
-    $("#slides").electricSlide();
-  })
-</script>
-<div id="slides">
-<% @user.each do |u| %>
-  <% u.posts.each do |slide| %>
-  <div class="slide">
-    <%= image_tag slide.image.url %>
+<div class="container">
+  <div class="row">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+
+      <div class="carousel-inner" role="listbox">
+
+          <div class="item active">
+            <%= image_tag @post[-1].image.url(:large) %>
+            <div class="carousel-caption">
+              ...
+            </div>
+          </div>
+
+        <div class="item .active">
+          <%= image_tag @post[-2].image.url(:large) %>
+          <div class="carousel-caption">
+            ...
+          </div>
+        </div>
+        <div class="item .active">
+          <%= image_tag @post[-3].image.url(:large) %>
+          <div class="carousel-caption">
+            ...
+          </div>
+        </div>
+        <div class="item .active">
+          <%= image_tag @post[-4].image.url(:large) %>
+          <div class="carousel-caption">
+            ...
+          </div>
+        </div>
+      </div>
+
+
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
-  <% end  %>
-<% end %>
-</div>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
+</div> -->
+
+
+
 
 <div class="center-block"><h1>Travelr</h1></div>
 
@@ -35,41 +71,14 @@
 <div class="container">
        <div class="row">
         <div class="col-md-12">
-
             <article class="">
-
-               <% @post.each do |post|  %>
+               <% @post.first(6).each do |post|  %>
                 <div class="posts">
                   <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
-
                     <%= image_tag post.image.url(:medium), class:"images" %>
-
-
                 </div>
                 <% end  %>
             </article>
-
-
         </div>
-
       </div>
     </div>
-<!-- <div class="container"
-    <div class="row">
-
-  <% @user.each do |u|  %>
-  <% u.posts.each do |post| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <%= image_tag post.image.url(:medium) %>
-      <div class="caption">
-        <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
-        <p> <%= post.body %> </p>
-        <p><a href="posts/show" class="btn btn-primary" role="button">Button</a>
-      </div>
-    </div>
-  </div>
-  <% end  %>
-</div>
-<% end  %>
-</div> -->

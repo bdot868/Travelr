@@ -22,7 +22,9 @@ resources :posts do
 end
 
 delete '/logout' => 'sessions#destroy', as: :logout
-resources :sessions, only: [:new, :create]
+resources :sessions, only: [:new, :create] do
+  resources :users
+end
 
 
 

@@ -9,6 +9,11 @@ gem 'dotenv-rails', group: :development, require: 'dotenv/rails-now'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+group :development do
+   gem 'sqlite3'
+   gem 'better_errors'
+ end
+
 ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'

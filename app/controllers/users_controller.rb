@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :authorize, only: [:show]
+  # before_action :authorize, only: [:show]
 
   def index
     @user = User.all
-    @post = Post.first(6)
+    @post = Post.all
   end
 
   def show

@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/global.css">
+
     <style media="screen">
       .signed-in {
         float: right;
@@ -32,8 +35,15 @@
         width: 300px;
       }
       .jumbotron {
-        height: 400px;
+        height: 300px;
+        background-color: #66C0B9;
+        color: white;
       }
+      .carousel-inner img {
+        height: 430px;
+        width: auto;
+      }
+
       #create {
         float: right;
       }
@@ -50,7 +60,7 @@
 
       .thumbnail {
         width: 360px;
-        height: 393px;
+        height: 400px;
       }
       .thumbnail .caption {
           padding: 0px;
@@ -66,25 +76,7 @@
   height: 300px;
   margin-top: 30px;
 }
-.slide {
-  display:none;
-}
-#slides .slide-header {
-  display: none
-}
-#slides .slide-footer {
-  margin:0;
-  width: 200px;
-}
-.slide-footer .previous {
-  width:75px;
-  float:left;
-}
-.slide-footer .next {
-  width:75px;
-  float:right;
-  text-align:right;
-}
+
     </style>
   </head>
 
