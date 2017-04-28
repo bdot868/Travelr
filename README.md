@@ -6,6 +6,8 @@
 
 Travelr is a website that lets subscribers write reviews about different cities and countries they've traveled to sharing their experiences with the world! Also Travelr is the go to website for users planning a trip or considering visiting a new place and would like some tips, recommendations and info to make their upcoming vacation/trip a great experience.
 
+To view Travelr click here: [Travelr](https://serene-river-31618.herokuapp.com/)
+
 ---
 
 ### User Stories
@@ -42,13 +44,8 @@ Upon entering the website I can view the content on the home screen, when trying
 ### Credits
 
 ##### Myself for a Job well Done!
-##### Stack overflow. 
-##### Jimmy, Phillipe & The TA's for their wonderful help. 
+##### Stack overflow.
+##### Jimmy, Phillipe & The TA's for their wonderful help.
 ##### Ruby Rails tutorial
 ##### Bootstrap documentation
 ##### Phillipe's image uploading video on youtube
-
-
-
-
-
