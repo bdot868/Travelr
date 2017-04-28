@@ -44,8 +44,13 @@ Upon entering the website I can view the content on the home screen, when trying
 ### Credits
 
 ##### Myself for a Job well Done!
-##### Stack overflow.
+
+Stack overflow.
+
 ##### Jimmy, Phillipe & The TA's for their wonderful help.
-##### Ruby Rails tutorial
-##### Bootstrap documentation
-##### Phillipe's image uploading video on youtube
+
+Ruby Rails tutorial
+
+Bootstrap documentation
+
+Phillipe's image uploading video on youtube
