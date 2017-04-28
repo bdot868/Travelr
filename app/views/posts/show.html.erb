@@ -27,11 +27,15 @@
   <% end  %>
 
 <h4>Comments</h4>
-<ul class="">
+<article>
   <% @post.comments.each do |comment| %>
-    <li><%= comment.body %></li>
+    <p><%= @post.user.username %>
+      <ul>
+        <li><%= comment.body %></li>
+      </ul>
+    </p>  
   <% end %>
-</ul>
+</article>
 
 <%= form_for([@post, @comment],{:html => {:class => 'form-horizontal'}}) do |f| %>
   <fieldset>
