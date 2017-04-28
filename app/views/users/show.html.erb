@@ -3,29 +3,33 @@
 <h3>Trips:</h3>
 
 
- <div class="container"
-    <div class="row">
+ <div class="container">
 
-  <% @user.posts.each do |post|  %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <%= image_tag post.image.url(:medium) %>
-      <div class="caption">
-        <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
-        <p> <%= post.body %> </p>
-        <p><a href="posts/show" class="btn btn-primary" role="button">Button</a>
+
+  <% @user.posts.each_slice(3) do |row|  %>
+  <div class="row">
+    <% row.each do |post| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= image_tag post.image.url(:medium) %>
+          <div class="caption">
+            <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
+            <p> <%= post.body.first(50) %>... </p>
+            <div><%= link_to 'More', post_path(post), class:"btn btn-primary" %></div>
+            <!-- <p><a href="posts/show" class="btn btn-primary" role="button">Button</a> -->
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <% end  %>
-</div>
+
 
 </div>
 
   <% @user.posts.each do |up|  %>
     <article>
       <%= link_to up.title, post_path(up) %>
-      <a href=" <%= post_url(up) %>"> <%= image_tag up.image.url(:thumb) %></a>
     </article>
   <% end  %>
 
