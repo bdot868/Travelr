@@ -22,7 +22,7 @@
                <% @post.first(6).each do |post|  %>
                 <div class="posts">
                   <h3 class="text-capitalize"><%= link_to post.city, post_path(post.id) %></h3>
-                    <%= image_tag post.image.url(:medium), class:"images" %>
+                    <%= link_to image_tag(post.image.url(:medium), class:"images"), post_path(post.id) %>
                 </div>
                 <% end  %>
             </article>

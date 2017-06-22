@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="stylesheet" type="text/css" media="screen and (max-width: 400px)" href="../src/Mobile.scss"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/global.css">
 
@@ -71,13 +72,51 @@
       }
 
       body {
-  background:#EEEEDD;
-}
-.foot {
-  background: #2D2D47;
-  height: 300px;
-  margin-top: 30px;
-}
+        background:#EEEEDD;
+      }
+      .foot {
+        background: #2D2D47;
+        height: 300px;
+        margin-top: 30px;
+      }
+      @media screen and (max-width: 400px) {
+        .post-img {
+          width: 300px;
+          height: 200px;
+          border-radius: 5px;
+        }
+        .foot {
+          height: 2em;
+        }
+        .comments {
+          background: white;
+          height: 40px;
+          list-style-type: none;
+          border: 1px solid grey;
+          border-radius: 5px;
+          margin: 5px;
+          padding-left: 3px;
+        }
+        .post-text {
+          font-weight: bold;
+        }
+        h1, .subheader {
+          text-align: center;
+        }
+        .jumbotron p {
+          text-align: center;
+        }
+        .jumbotron a {
+          margin-left: 30%;
+        }
+        .posts .images {
+          box-shadow: 10px 10px 5px #888888
+        }
+        .navbar-form button {
+          margin-left: 40%;
+        }
+      }
+
 
     </style>
   </head>
